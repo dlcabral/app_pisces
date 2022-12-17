@@ -2,5 +2,4 @@
 
 - Circleci
 - Codepush
-- create docker account
 
