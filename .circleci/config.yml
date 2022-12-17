@@ -4,9 +4,6 @@ jobs:
     working_directory: ~/repo
     docker:
       - image: circleci/node
-        auth:
-          username: dlcabraldocker
-          password: Dica25619783@
     steps:
       - checkout
       - run:
