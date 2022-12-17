@@ -3,7 +3,7 @@ jobs:
   build:
     working_directory: ~/repo
     docker:
-      - image: circleci/node:19.2.0
+      - image: circleci/node
         auth:
           username: dlcabraldocker
           password: Dica25619783@
