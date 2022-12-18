@@ -53,11 +53,8 @@ jobs:
       - attach_workspace:
           at: ~/app_pisces
       - run:
-          name: update fastlane
-          command: gem install fastlane
-      - run:
           name: fastlane deploy playstore 
-          command: fastlane playstore
+          command: bundle exec fastlane playstore
 
 
 workflows:
