@@ -46,7 +46,7 @@ jobs:
           path: test-results
             
   android-build-and-test:
-    working_directory: ~/demo-react-native/android
+    working_directory: ~/app_pisces/android
     docker:
       - image: cimg/android:2022.09
     steps:
