@@ -40,4 +40,4 @@ workflows:
   build-workflow:
     jobs:
       - build
-      - android/deploy-to-play-store
+      - deploy
