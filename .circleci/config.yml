@@ -58,7 +58,7 @@ jobs:
       - restore_cache:
           key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
 
-      - run: bundle install
+      - run: yarn install
 
       - save_cache:
           key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
@@ -68,6 +68,7 @@ jobs:
       - run:
           name: fastlane deploy playstore 
           command: |
+            bundle install
             bundle exec fastlane deploy
           working_directory: android
 
