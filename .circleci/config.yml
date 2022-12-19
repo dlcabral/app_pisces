@@ -43,17 +43,6 @@ jobs:
 
       - store_artifacts:
           path: test-results
-  
-  machine:
-    ruby:
-      version: 2.7.7
-    pre:
-      - git clone https://github.com/rbenv/ruby-build.git && cd ruby-build && sudo sh install.sh
-      - rbenv install 2.7.7
-      - rbenv global 2.7.7
-      - cd $CIRCLE_PROJECT_REPONAME && sudo gem update --system
-      - sudo gem install bundler
-      - bundle install
             
   android-build-and-test:
     working_directory: ~/app_pisces
@@ -64,7 +53,12 @@ jobs:
           path: ~/app_pisces
       - attach_workspace:
           at: ~/app_pisces
-      - machine
+      - run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      - run: brew install rbenv ruby-build
+      - run: rbenv install 2.7.7
+      - run: rbenv global 2.7.7
+      - run: brew install bundler
+      - run: bundle install
       - run:
           name: fastlane deploy playstore 
           command: bundle exec fastlane playstore
