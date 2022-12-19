@@ -52,6 +52,16 @@ jobs:
           path: ~/app_pisces
       - attach_workspace:
           at: ~/app_pisces
+      - restore_cache:
+          keys:
+            - {{ checksum "Gemfile.lock" }}
+      - run: gem update --system
+      - run: gem install bundler
+      - run: bundle install
+      - save_cache:
+          key: {{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
       - run:
           name: fastlane deploy playstore 
           command: bundle exec fastlane playstore
