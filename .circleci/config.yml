@@ -53,15 +53,11 @@ jobs:
           path: ~/app_pisces
       - attach_workspace:
           at: ~/app_pisces
-      - run: /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      - run: echo '# Set PATH, MANPATH, etc., for Homebrew.' >> /home/circleci/.profile
-      - run: echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"' >> /home/circleci/.profile
-      - run: eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-      - run: sudo apt-get install build-essential
-      - run: brew install rbenv ruby-build
-      - run: rbenv install 2.7.7
-      - run: rbenv global 2.7.7
-      - run: brew install bundler
+      - run: curl -sSL https://get.rvm.io | bash -s stable
+      - run: rvm install 2.7.7
+      - run: rvm global 2.7.7
+      - run: ruby -v
+      - run: rvm install bundler
       - run: bundle install
       - run:
           name: fastlane deploy playstore 
