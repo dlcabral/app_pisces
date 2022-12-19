@@ -58,7 +58,7 @@ jobs:
           command: |
             cd android
             bundle install
-            bundle exec fastlane playstore
+            bundle exec fastlane deploy
 
 workflows:
   node-android:
