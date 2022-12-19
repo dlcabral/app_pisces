@@ -56,19 +56,11 @@ jobs:
       - run:
           name: install rbenv
           command: |
-            sudo install rbenv ruby-build
-            sudo apt install rbenv
-            rbenv install 2.7.7
-      - run:
-          name: set rbenv
-          command: |
-            echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
-            echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
-            exec $SHELL -l
+            git clone https://github.com/rbenv/rbenv.git ~/.rbenv
+            echo 'eval "$(~/.rbenv/bin/rbenv init - bash)"' >> ~/.bashrc
       - run:
           name: fastlane deploy playstore 
           command: bundle exec fastlane playstore
-
 
 workflows:
   node-android:
