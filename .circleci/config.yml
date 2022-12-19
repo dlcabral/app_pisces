@@ -54,13 +54,10 @@ jobs:
       - attach_workspace:
           at: ~/app_pisces
       - run:
-          name: bundle install
-          command: |
-            bundle install
-      - run:
           name: fastlane deploy playstore 
           command: |
             cd android
+            bundle install
             bundle exec fastlane playstore
 
 workflows:
