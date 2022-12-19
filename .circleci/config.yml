@@ -43,7 +43,7 @@ jobs:
 
       - store_artifacts:
           path: test-results
-            
+
   android-build-and-test:
     working_directory: ~/app_pisces
     docker:
@@ -51,13 +51,25 @@ jobs:
     steps:
       - checkout:
           path: ~/app_pisces
+
       - attach_workspace:
           at: ~/app_pisces
+
+      - restore_cache:
+          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
+
+      - run: |
+        cd android
+        bundle install
+
+      - save_cache:
+          key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
+          paths:
+            - vendor/bundle
+
       - run:
           name: fastlane deploy playstore 
           command: |
-            cd android
-            bundle install
             bundle exec fastlane deploy
 
 workflows:
