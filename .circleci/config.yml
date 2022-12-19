@@ -55,6 +55,8 @@ jobs:
           at: ~/app_pisces
       - run: sudo gem update --system
       - run: sudo gem install bundler
+      - run: sudo rbenv install 2.7.7
+      - run: sudo rbenv global 2.7.7
       - run: bundle install
       - run:
           name: fastlane deploy playstore 
