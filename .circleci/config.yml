@@ -53,9 +53,11 @@ jobs:
           path: ~/app_pisces
       - attach_workspace:
           at: ~/app_pisces
-      - run: curl -sSL https://get.rvm.io | bash -s stable
-      - run: rvm install 2.7.7
-      - run: rvm global 2.7.7
+      - run:
+          name: Set ruby version to 2.7.7
+          command: |
+              rvm install 2.7.7
+              echo . $(rvm 2.7.7 do rvm env --path) >> $BASH_ENV
       - run: ruby -v
       - run: rvm install bundler
       - run: bundle install
