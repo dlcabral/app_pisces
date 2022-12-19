@@ -52,8 +52,8 @@ jobs:
           path: ~/app_pisces
       - attach_workspace:
           at: ~/app_pisces
-      - run: gem update --system
-      - run: gem install bundler
+      - run: sudo gem update --system
+      - run: sudo gem install bundler
       - run: bundle install
       - run:
           name: fastlane deploy playstore 
