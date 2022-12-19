@@ -54,11 +54,6 @@ jobs:
       - attach_workspace:
           at: ~/app_pisces
       - run:
-          name: install rbenv
-          command: |
-            git clone https://github.com/rbenv/rbenv.git ~/.rbenv
-            echo 'eval "$(~/.rbenv/bin/rbenv init - bash)"' >> ~/.bashrc
-      - run:
           name: fastlane deploy playstore 
           command: bundle exec fastlane playstore
 
