@@ -170,6 +170,7 @@ android {
         applicationId "com.app_pisces"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
+        compileSdkVersion rootProject.ext.compileSdkVersion
         versionName generateVersionName()
         versionCode generateVersionCode()
         buildConfigField "boolean", "IS_NEW_ARCHITECTURE_ENABLED", isNewArchitectureEnabled().toString()
