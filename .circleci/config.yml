@@ -58,7 +58,11 @@ jobs:
       - run: 
           name: configure
           command: gem update --system
+      - run: 
+          name: configure 2
           command: gem install bundler
+      - run: 
+          name: configure 3
           command: bundle install
       - save_cache:
           key: {{ checksum "Gemfile.lock" }}
