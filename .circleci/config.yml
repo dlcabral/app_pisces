@@ -45,6 +45,7 @@ jobs:
           path: test-results
             
   android-build-and-test:
+    working_directory: ~/app_pisces
     docker:
       - image: cimg/android:2022.09
     steps:
