@@ -54,10 +54,18 @@ jobs:
       - attach_workspace:
           at: ~/app_pisces
       - run:
-          name: Set ruby version to 2.7.7
+          name: install chruby
           command: |
-              rvm install 2.7.7
-              echo . $(rvm 2.7.7 do rvm env --path) >> $BASH_ENV
+            wget -O chruby-0.3.9.tar.gz https://github.com/postmodern/chruby/archive/v0.3.9.tar.gz
+            tar -xzvf chruby-0.3.9.tar.gz
+            cd chruby-0.3.9/
+            sudo make install
+      - run: ruby-install ruby 2.7.7
+      - run:
+          name: Set chruby
+          command: |
+            echo 'source /usr/local/share/chruby/chruby.sh' >> $BASH_ENV
+            echo 'chruby ruby-2.7.7' >> $BASH_ENV 
       - run: ruby -v
       - run: rvm install bundler
       - run: bundle install
