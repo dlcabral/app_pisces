@@ -60,16 +60,12 @@ jobs:
             tar -xzvf chruby-0.3.9.tar.gz
             cd chruby-0.3.9/
             sudo make install
-      - run: sudo install ruby
-      - run: ruby-install ruby 2.7.7
+      - run: ruby-install ruby 2.7.1
       - run:
           name: Set chruby
           command: |
             echo 'source /usr/local/share/chruby/chruby.sh' >> $BASH_ENV
-            echo 'chruby ruby-2.7.7' >> $BASH_ENV 
-      - run: ruby -v
-      - run: sudo gem install bundler
-      - run: bundle install
+            echo 'chruby ruby-2.7.1' >> $BASH_ENV 
       - run:
           name: fastlane deploy playstore 
           command: bundle exec fastlane playstore
