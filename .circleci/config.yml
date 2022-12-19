@@ -59,7 +59,9 @@ jobs:
             bundle install
       - run:
           name: fastlane deploy playstore 
-          command: bundle exec fastlane playstore
+          command: |
+            cd android
+            bundle exec fastlane playstore
 
 workflows:
   node-android:
