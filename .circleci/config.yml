@@ -70,6 +70,7 @@ jobs:
           command: |
             bundle install
             bundle exec fastlane deploy
+          working_directory: android
 
 workflows:
   node-android:
