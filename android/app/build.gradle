@@ -240,8 +240,10 @@ android {
         }
     }
     signingConfigs {
+        //> Keystore file '/root/**********/android/app/~/**********/android/app/apk.keystore' not found for signing config 'release'.
+        //> Keystore file '/root/**********/android/app/apk.keystore' not found for signing config 'release'.
         release {
-            storeFile file('~/app_pisces/android/app/apk.keystore')
+            storeFile file('../app_pisces/android/app/apk.keystore')
             storePassword '12345678'
             keyAlias 'my-key-alias'
             keyPassword '12345678'
