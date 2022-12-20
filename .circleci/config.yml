@@ -64,8 +64,6 @@ jobs:
           key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
           paths:
             - vendor/bundle
-      
-      - run: ruby -version
 
       - run:
           name: fastlane deploy playstore 
