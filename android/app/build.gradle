@@ -245,15 +245,11 @@ android {
     }
     signingConfigs {
         release {
-            def keystorePropertiesFile = rootProject.file('app/keystore.properties')
-            if (keystorePropertiesFile.exists()) {
-                def keystoreProperties = new Properties()
-                keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-
-                storeFile file(keystoreProperties['key.store'])
-                storePassword keystoreProperties['key.store.password']
-                keyAlias keystoreProperties['key.alias']
-                keyPassword keystoreProperties['key.alias.password']
+            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+                storeFile file(MYAPP_UPLOAD_STORE_FILE)
+                storePassword MYAPP_UPLOAD_STORE_PASSWORD
+                keyAlias MYAPP_UPLOAD_KEY_ALIAS
+                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
             }
         }
         debug {

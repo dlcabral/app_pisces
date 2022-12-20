@@ -64,6 +64,12 @@ jobs:
           key: bundle-v1-{{ checksum "Gemfile.lock" }}-{{ arch }}
           paths:
             - vendor/bundle
+      
+      - run:
+          name: create key store
+          command: |
+            echo $RELEASE_KEYSTORE_BASE64 | base64 -d > .signing/release.jks
+          working_directory: android/app
 
       - run:
           name: fastlane deploy playstore 
