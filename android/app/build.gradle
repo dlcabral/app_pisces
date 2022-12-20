@@ -241,7 +241,7 @@ android {
     }
     signingConfigs {
         release {
-            storeFile file('apk.keystore')
+            storeFile file('~/app_pisces/android/app/apk.keystore')
             storePassword '12345678'
             keyAlias 'my-key-alias'
             keyPassword '12345678'
