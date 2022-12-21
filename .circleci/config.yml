@@ -66,6 +66,12 @@ jobs:
             - vendor/bundle
 
       - run:
+          name: create keystore file 
+          command: |
+            cd ./android/app
+            sudo keytool -genkey -v -keystore apk.keystore -alias app_pisces -keyalg RSA -keysize 2048 -validity 10000
+
+      - run:
           name: fastlane deploy playstore 
           command: |
             bundle install
