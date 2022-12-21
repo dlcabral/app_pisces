@@ -243,7 +243,7 @@ android {
         release {
             storeFile file('apk.keystore')
             storePassword '12345678'
-            keyAlias 'my-key-alias'
+            keyAlias 'app_pisces'
             keyPassword '12345678'
         }
     }
