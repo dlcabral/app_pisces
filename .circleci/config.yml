@@ -69,7 +69,7 @@ jobs:
           name: create keystore file 
           command: |
             cd ./android/app
-            sudo keytool -genkey -v -keystore apk.keystore -alias app_pisces -keyalg RSA -keysize 2048 -validity 10000
+            echo $BASE64_KEYSTORE | base64 -d > .signing/release.jks
 
       - run:
           name: fastlane deploy playstore 
